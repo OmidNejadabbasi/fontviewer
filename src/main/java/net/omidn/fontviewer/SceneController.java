@@ -32,4 +32,12 @@ public class SceneController {
     @FXML
     private Text previewText;
 
+    @FXML
+    private void initialize(){
+        previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(5.0));
+
+
+    }
+
+
 }
