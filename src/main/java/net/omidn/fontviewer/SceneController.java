@@ -36,7 +36,9 @@ public class SceneController {
     private void initialize(){
         previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(5.0));
 
-
+        fontSizeSlider.setMin(4);
+        fontSizeSlider.setMax(92);
+        fontSizeSlider.setBlockIncrement(1);
     }
 
 
