@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.util.Callback;
 
 import java.io.File;
 import java.util.List;
@@ -88,6 +89,25 @@ public class SceneController {
                 }
             }
 
+        });
+
+        fontsListView.setCellFactory(new Callback<ListView<File>, ListCell<File>>() {
+            @Override
+            public ListCell<File> call(ListView<File> param) {
+                ListCell<File> cell = new ListCell<>(){
+                    @Override
+                    protected void updateItem(File item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item!=null) {
+                            setText(item.getName());
+                            setFont(Font.loadFont("file:///"+item.getAbsolutePath(), 20));
+                        } else {
+                            setText(null);
+                        }
+                    }
+                };
+                return cell;
+            }
         });
 
     }
