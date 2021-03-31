@@ -3,6 +3,7 @@ package net.omidn.fontviewer;
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 public class SceneController {
 
+    public Button clearBtn;
     @FXML
     private ListView<File> fontsListView;
 
@@ -127,4 +129,8 @@ public class SceneController {
     }
 
 
+    public void clearList(ActionEvent actionEvent) {
+        fontsListView.getItems().clear();
+        System.gc();
+    }
 }

@@ -31,6 +31,11 @@
             <Text fx:id="previewText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Quick Brown Fox Jumps Over The lazy Dog" />
          </content>
         </ScrollPane>
+      <Button fx:id="clearBtn" layoutX="448.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearList" prefHeight="26.0" prefWidth="26.0" text="⟳">
+         <tooltip>
+            <Tooltip text="Clear the list" />
+         </tooltip>
+      </Button>
     </children>
 
 </AnchorPane>
