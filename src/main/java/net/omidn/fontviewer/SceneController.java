@@ -95,13 +95,13 @@ public class SceneController {
         fontsListView.setCellFactory(new Callback<ListView<File>, ListCell<File>>() {
             @Override
             public ListCell<File> call(ListView<File> param) {
-                ListCell<File> cell = new ListCell<>(){
+                ListCell<File> cell = new ListCell<>() {
                     @Override
                     protected void updateItem(File item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (item!=null) {
+                        if (item != null) {
                             setText(item.getName());
-                            setFont(Font.loadFont("file:///"+item.getAbsolutePath(), 20));
+                            setFont(Font.loadFont("file:///" + item.getAbsolutePath(), 20));
                         } else {
                             setText(null);
                         }
@@ -112,8 +112,16 @@ public class SceneController {
         });
 
         fontsListView.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) -> {
-            Font font = Font.loadFont("file:///"+fontsListView.getItems().get(newValue.intValue()), fontSizeSlider.getValue());
+            Font font = Font.loadFont("file:///" + fontsListView.getItems().get(newValue.intValue()), fontSizeSlider.getValue());
             previewText.setFont(font);
+        });
+
+        previewTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                previewText.setText("The Quick Brown Fox Jumps Over The lazy Dog");
+            } else {
+                previewText.setText(newValue);
+            }
         });
 
     }
