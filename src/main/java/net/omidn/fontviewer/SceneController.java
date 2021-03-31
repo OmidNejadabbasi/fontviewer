@@ -1,9 +1,11 @@
 package net.omidn.fontviewer;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.util.List;
@@ -32,8 +34,15 @@ public class SceneController {
     @FXML
     private Text previewText;
 
+
+    private ObjectProperty<Font> currentFont;
+
+
     @FXML
     private void initialize() {
+
+        currentFont = previewText.fontProperty();
+
         previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(5.0));
 
         fontSizeSlider.setMin(4);
@@ -57,7 +66,7 @@ public class SceneController {
             String value = newValue.intValue() + "px";
             fontSizeComboBox.setValue(value);
 
-            // TODO change the font size of the preview Text
+            previewText.setStyle("-fx-font-size: " + fontSizeComboBox.getValue() + ";");
         });
 
     }
