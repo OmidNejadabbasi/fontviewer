@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,6 +69,18 @@ public class SceneController {
             fontSizeComboBox.setValue(value);
 
             previewText.setStyle("-fx-font-size: " + fontSizeComboBox.getValue() + ";");
+        });
+
+        addItemsBtn.setOnAction(event -> {
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose a directory or a bunch of files : ");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Font files(*.ttf, *.otf)", "*.ttf", "*.otf"));
+            fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+            List<File> files = fileChooser.showOpenMultipleDialog(Main.mainStage);
+
+
+
         });
 
     }
