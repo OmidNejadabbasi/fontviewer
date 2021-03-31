@@ -46,7 +46,7 @@ public class SceneController {
 
         currentFont = previewText.fontProperty();
 
-        previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(5.0));
+        previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(12.0));
 
         fontSizeSlider.setMin(4);
         fontSizeSlider.setMax(96);
@@ -57,8 +57,9 @@ public class SceneController {
                         .stream().map(s -> s + "px").collect(Collectors.toList()));
         fontSizeComboBox.setItems(comboBoxValues);
 
-        fontSizeComboBox.setValue("8px");
-        fontSizeSlider.setValue(8);
+        fontSizeComboBox.setValue("20px");
+        fontSizeSlider.setValue(20);
+        previewText.setStyle("-fx-font-size: " + "20px" + ";");
         // value change action handling
         fontSizeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
             int newV = Integer.parseInt(newValue.split("px")[0]);
