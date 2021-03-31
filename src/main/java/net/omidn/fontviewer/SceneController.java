@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class SceneController {
 
     @FXML
-    private ListView<?> fontsListView;
+    private ListView<File> fontsListView;
 
     @FXML
     private Button addItemsBtn;
@@ -38,7 +38,7 @@ public class SceneController {
 
 
     private ObjectProperty<Font> currentFont;
-
+    private File lastSeenDir;
 
     @FXML
     private void initialize() {
@@ -76,10 +76,17 @@ public class SceneController {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Choose a directory or a bunch of files : ");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Font files(*.ttf, *.otf)", "*.ttf", "*.otf"));
-            fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+            fileChooser.setInitialDirectory(lastSeenDir != null ? lastSeenDir : new File(System.getProperty("user.home")));
             List<File> files = fileChooser.showOpenMultipleDialog(Main.mainStage);
-
-
+            if (files == null)
+                return;
+            ObservableList<File> fontItems = fontsListView.getItems();
+            lastSeenDir = files.get(0).getParentFile();
+            for (File file : files) {
+                if (!fontItems.contains(file)) {
+                    fontItems.add(file);
+                }
+            }
 
         });
 
