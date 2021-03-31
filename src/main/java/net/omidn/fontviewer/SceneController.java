@@ -44,6 +44,14 @@ public class SceneController {
                 List.of("8", "12", "14", "20", "24", "32", "40", "64", "96")
                         .stream().map(s -> s + "px").collect(Collectors.toList()));
         fontSizeComboBox.setItems(comboBoxValues);
+
+        fontSizeComboBox.setValue("8px");
+        fontSizeSlider.setValue(8);
+        // value change action handling
+        fontSizeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            int newV = Integer.parseInt(newValue.split("px")[0]);
+            fontSizeSlider.setValue(newV);
+        });
     }
 
 
