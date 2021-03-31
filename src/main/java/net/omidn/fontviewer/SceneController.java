@@ -52,6 +52,14 @@ public class SceneController {
             int newV = Integer.parseInt(newValue.split("px")[0]);
             fontSizeSlider.setValue(newV);
         });
+
+        fontSizeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            String value = newValue.intValue() + "px";
+            fontSizeComboBox.setValue(value);
+
+            // TODO change the font size of the preview Text
+        });
+
     }
 
 
