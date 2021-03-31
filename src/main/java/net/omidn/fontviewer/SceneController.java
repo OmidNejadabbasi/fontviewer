@@ -46,7 +46,7 @@ public class SceneController {
 
         currentFont = previewText.fontProperty();
 
-        previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(12.0));
+        previewText.wrappingWidthProperty().bind(previewScrollPane.widthProperty().subtract(20.0));
 
         fontSizeSlider.setMin(4);
         fontSizeSlider.setMax(96);
@@ -70,7 +70,7 @@ public class SceneController {
             String value = newValue.intValue() + "px";
             fontSizeComboBox.setValue(value);
 
-            previewText.setStyle("-fx-font-size: " + fontSizeComboBox.getValue() + ";");
+            previewText.setStyle("-fx-font-size: " + value + ";");
         });
 
         addItemsBtn.setOnAction(event -> {

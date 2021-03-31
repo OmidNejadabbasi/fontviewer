@@ -10,23 +10,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="450.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.omidn.fontviewer.SceneController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.omidn.fontviewer.SceneController">
     <children>
-        <ListView fx:id="fontsListView" layoutX="2.0" layoutY="2.0" prefHeight="0" prefWidth="200.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" />
-        <Button fx:id="addItemsBtn" layoutX="212.0" layoutY="14.0" mnemonicParsing="false" text="Add items to the list" />
-        <Text layoutX="212.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview text:" />
-        <TextArea fx:id="previewTextField" layoutX="212.0" layoutY="90.0" prefHeight="270.0" prefWidth="200.0" promptText="Type Something..." AnchorPane.bottomAnchor="30.0" AnchorPane.topAnchor="100.0" />
-        <Slider fx:id="fontSizeSlider" layoutX="302.0" layoutY="378.0" prefHeight="16.0" prefWidth="115.0" AnchorPane.bottomAnchor="6.0">
+        <ListView fx:id="fontsListView" layoutX="2.0" layoutY="2.0" prefHeight="446.0" prefWidth="292.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" />
+        <Button fx:id="addItemsBtn" layoutX="298.0" layoutY="14.0" mnemonicParsing="false" text="Add items to the list" />
+        <Text layoutX="298.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preview text:" />
+        <TextArea fx:id="previewTextField" layoutX="294.0" layoutY="103.0" prefHeight="392.0" prefWidth="236.0" promptText="Type Something..." AnchorPane.bottomAnchor="27.0" AnchorPane.topAnchor="103.0" />
+        <Slider fx:id="fontSizeSlider" layoutX="383.0" layoutY="500.0" prefHeight="16.0" prefWidth="144.0" AnchorPane.bottomAnchor="6.0">
             <tooltip>
                 <Tooltip text="Font Size" />
             </tooltip>
         </Slider>
-        <ComboBox fx:id="fontSizeComboBox" layoutX="212.0" layoutY="373.0" prefHeight="26.0" prefWidth="86.0" visibleRowCount="5" AnchorPane.bottomAnchor="1.0">
+        <ComboBox fx:id="fontSizeComboBox" layoutX="294.0" layoutY="495.0" prefHeight="26.0" prefWidth="86.0" visibleRowCount="5" AnchorPane.bottomAnchor="1.0">
             <tooltip>
                 <Tooltip text="Font Size" />
             </tooltip>
         </ComboBox>
-        <ScrollPane fx:id="previewScrollPane" layoutX="417.0" layoutY="14.0" prefHeight="432.0" prefWidth="331.0" style="-fx-border: 0;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="417.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+        <ScrollPane fx:id="previewScrollPane" layoutX="533.0" layoutY="14.0" prefHeight="518.0" prefWidth="491.0" style="-fx-border: 0;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="533.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <content>
             <Text fx:id="previewText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Quick Brown Fox Jumps Over The lazy Dog" />
          </content>

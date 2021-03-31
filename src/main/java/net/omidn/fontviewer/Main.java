@@ -24,6 +24,9 @@ public class Main extends Application {
 
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(850);
+        primaryStage.setTitle("Font Viewer :)");
         primaryStage.show();
     }
 }
