@@ -110,6 +110,11 @@ public class SceneController {
             }
         });
 
+        fontsListView.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue) -> {
+            Font font = Font.loadFont("file:///"+fontsListView.getItems().get(newValue.intValue()), fontSizeSlider.getValue());
+            previewText.setFont(font);
+        });
+
     }
 
 
