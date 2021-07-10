@@ -104,6 +104,13 @@ public class SceneController {
                         if (item != null) {
                             setText(item.getName());
                             setFont(Font.loadFont("file:///" + item.getAbsolutePath(), 20));
+                            MenuItem menuItem = new MenuItem("Copy to clipboard ");
+                            menuItem.setOnAction(event -> {
+                                ClipboardUtil.copyFilesToClipboard(item);
+                            });
+                            ContextMenu contextMenu = new ContextMenu(menuItem);
+
+                            setContextMenu(contextMenu);
                         } else {
                             setText(null);
                         }
